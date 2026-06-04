@@ -1,12 +1,12 @@
 cask "okak" do
-  version "0.1.14"
+  version "0.1.15"
 
   on_intel do
-    sha256 "2d870a87015fc814ea94d9412cfde0d0d5073959fe4ad6875a0a7921a1d9f832"
+    sha256 "56df3006dcaef379e3f4f2c119906dee509cef20048345aa064d78bd192c8d0a"
     url "https://github.com/Lemon-Corporation/okak-release/releases/download/v#{version}/OKAK-#{version}-x64.dmg"
   end
   on_arm do
-    sha256 "2d870a87015fc814ea94d9412cfde0d0d5073959fe4ad6875a0a7921a1d9f832"
+    sha256 "56df3006dcaef379e3f4f2c119906dee509cef20048345aa064d78bd192c8d0a"
     url "https://github.com/Lemon-Corporation/okak-release/releases/download/v#{version}/OKAK-#{version}-arm64.dmg"
   end
 
@@ -15,6 +15,12 @@ cask "okak" do
   homepage "https://okakai.ru"
 
   app "OKAK.app"
+
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-rd", "com.apple.quarantine", "#{appdir}/OKAK.app"],
+                   sudo: false
+  end
 
   zap trash: [
     "~/Library/Application Support/OKAK",
