@@ -1,12 +1,12 @@
 cask "okak" do
-  version "0.1.16"
+  version "0.1.17"
 
   on_intel do
-    sha256 "3b5367c161928189d8b246ed37b2ef86ec6f3ec578fa6bdb21ab606bebae45d6"
+    sha256 "f011873d793b287aa8e50ce18625bbd2b186ed8bac3512ed763e2206753fec23"
     url "https://github.com/Lemon-Corporation/okak-release/releases/download/v#{version}/OKAK-#{version}-x64.dmg"
   end
   on_arm do
-    sha256 "3b5367c161928189d8b246ed37b2ef86ec6f3ec578fa6bdb21ab606bebae45d6"
+    sha256 "f011873d793b287aa8e50ce18625bbd2b186ed8bac3512ed763e2206753fec23"
     url "https://github.com/Lemon-Corporation/okak-release/releases/download/v#{version}/OKAK-#{version}-arm64.dmg"
   end
 
