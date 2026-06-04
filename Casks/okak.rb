@@ -1,12 +1,12 @@
 cask "okak" do
-  version "0.1.15"
+  version "0.1.16"
 
   on_intel do
-    sha256 "56df3006dcaef379e3f4f2c119906dee509cef20048345aa064d78bd192c8d0a"
+    sha256 "3b5367c161928189d8b246ed37b2ef86ec6f3ec578fa6bdb21ab606bebae45d6"
     url "https://github.com/Lemon-Corporation/okak-release/releases/download/v#{version}/OKAK-#{version}-x64.dmg"
   end
   on_arm do
-    sha256 "56df3006dcaef379e3f4f2c119906dee509cef20048345aa064d78bd192c8d0a"
+    sha256 "3b5367c161928189d8b246ed37b2ef86ec6f3ec578fa6bdb21ab606bebae45d6"
     url "https://github.com/Lemon-Corporation/okak-release/releases/download/v#{version}/OKAK-#{version}-arm64.dmg"
   end
 
@@ -18,8 +18,10 @@ cask "okak" do
 
   postflight do
     system_command "/usr/bin/xattr",
-                   args: ["-rd", "com.apple.quarantine", "#{appdir}/OKAK.app"],
+                   args: ["-d", "com.apple.quarantine", "#{appdir}/OKAK.app"],
                    sudo: false
+  rescue
+    # Ignore errors if quarantine is not present or command fails
   end
 
   zap trash: [
